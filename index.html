@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karly Dao | Portfolio</title>
+    <style>
+        /* CSS RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --primary-purple: #6b21a8;
+            --light-purple: #f3e8ff;
+            --accent-blue: #2563eb;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+            --bg-light: #f9fafb;
+            --card-border: #e5e7eb;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVIGATION */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .brand span {
+            color: var(--primary-purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-purple);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #581c87;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: white;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--light-purple);
+        }
+
+        .profile-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .profile-school {
+            color: var(--primary-purple);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .profile-class {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--light-purple);
+            color: var(--primary-purple);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .hero-statement {
+            font-size: 1.15rem;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--card-border);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            background: white;
+        }
+
+        /* SKILLS SECTION */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .skills-section {
+            padding: 40px 0;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: white;
+            border: 1px solid var(--card-border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .skill-tag:hover {
+            border-color: var(--primary-purple);
+            color: var(--primary-purple);
+        }
+
+        /* PROJECTS SECTION */
+        .projects-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-header {
+            margin-bottom: 15px;
+        }
+
+        .project-role {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .project-org {
+            color: var(--primary-purple);
+            font-weight: 600;
+        }
+
+        .project-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .project-bullets {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+
+        .project-bullets li {
+            margin-bottom: 8px;
+        }
+
+        .project-links a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .profile-card {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="brand">RBS <span>| Karly's Portfolio</span></div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="mailto:karly.dao@example.com" class="btn-primary">Download Resume</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- HERO / ABOUT SECTION -->
+        <section id="about" class="hero">
+            <div class="profile-card">
+                <!-- Replace src with your image file name -->
+                <img src="headshot.jpg" alt="Karly Dao Headshot" class="profile-img">
+                <h2 class="profile-name">Karly Dao</h2>
+                <p class="profile-school">Rutgers Business School</p>
+                <p class="profile-class">Class of 2029 (Expected)</p>
+                <a href="mailto:karly.dao@example.com" class="btn-primary" style="display: inline-block; width: 100%; margin-top: 10px;">Email Me</a>
+            </div>
+
+            <div class="hero-content">
+                <span class="badge">Currently: Exploring Accounting & Finance</span>
+                <h1 class="hero-title">Driven by clarity, structure, and community impact.</h1>
+                <p class="hero-statement">Driven by a passion for serving others and a precision-minded love for numbers, clarity, and structure, I am a Rutgers Business School student dedicated to building a future in accounting where financial integrity meets community impact.</p>
+                <div class="hero-actions">
+                    <a href="mailto:karly.dao@example.com" class="btn-secondary">Email Me</a>
+                    <a href="#" class="btn-secondary">LinkedIn Profile →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="skills-section">
+            <h2 class="section-title">Skills & Capabilities</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Project Coordination</span>
+                <span class="skill-tag">Microsoft Office</span>
+                <span class="skill-tag">Financial Data Analysis</span>
+                <span class="skill-tag">Records Management</span>
+                <span class="skill-tag">Marketing</span>
+                <span class="skill-tag">Youth Outreach</span>
+                <span class="skill-tag">Accounting Education</span>
+                <span class="skill-tag">Volunteer Recruiting</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Bookkeeping</span>
+                <span class="skill-tag">Speaks Vietnamese</span>
+                <span class="skill-tag">Cascading Style Sheets (CSS)</span>
+                <span class="skill-tag">Accounting</span>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">Leadership & Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-role">Youth Lead</h3>
+                        <p class="project-org">Make the Road New Jersey</p>
+                        <p class="project-date">Jan 2023 - Jun 2025 · 2 yrs 6 mos</p>
+                        <ul class="project-bullets">
+                            <li>Led youth committee towards positive community outreach, encouraging unity and volunteer service.</li>
+                            <li>Recruited over 2,000 members and signatures through promotional campaign and outreach to new channels, including communication with New Jersey officials.</li>
+                            <li>Led 3 differing youth engagements through conferences with officials, and worked directly with the Mayor of Elizabeth.</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" onclick="alert('Community Engagement Report Demo'); return false;">View Organization Highlights →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-role">Project Event Coordinator</h3>
+                        <p class="project-org">Student Government</p>
+                        <p class="project-date">Sep 2022 - Jun 2025 · 2 yrs 10 mos</p>
+                        <ul class="project-bullets">
+                            <li>Analyzed event schedule involving cultural activities and diverse ideas at school events for 3 years.</li>
+                            <li>Recruited 20 volunteers across all grades to collaborate and produce events.</li>
+                            <li>Executed activities for organization with 100 members in order to increase group cohesion.</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" onclick="alert('Event Coordination Summary Demo'); return false;">View Event Summary →</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Karly Dao | Rutgers Business School</p>
+    </footer>
+
+</body>
+</html>
