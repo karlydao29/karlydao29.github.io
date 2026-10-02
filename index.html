@@ -112,12 +112,13 @@
         }
 
         .profile-img {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
             border: 3px solid var(--light-purple);
+            box-shadow: 0 4px 12px rgba(107, 33, 168, 0.15);
         }
 
         .profile-name {
@@ -135,7 +136,6 @@
         .profile-class {
             color: var(--text-muted);
             font-size: 0.85rem;
-            margin-bottom: 20px;
         }
 
         .badge {
@@ -176,6 +176,12 @@
             color: var(--text-dark);
             font-weight: 600;
             background: white;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-purple);
+            color: var(--primary-purple);
         }
 
         /* SKILLS SECTION */
@@ -205,11 +211,13 @@
             font-size: 0.9rem;
             font-weight: 500;
             color: var(--text-dark);
+            transition: all 0.2s;
         }
 
         .skill-tag:hover {
             border-color: var(--primary-purple);
             color: var(--primary-purple);
+            background: var(--light-purple);
         }
 
         /* PROJECTS SECTION */
@@ -220,7 +228,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-top: 20px;
         }
@@ -234,6 +242,12 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
         }
 
         .project-header {
@@ -312,7 +326,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="mailto:karly.dao@example.com" class="btn-primary">Download Resume</a></li>
+                    <li><a href="Resume.pdf" download="Karly_Dao_Resume.pdf" class="btn-primary">Download Resume</a></li>
                 </ul>
             </nav>
         </div>
@@ -322,12 +336,11 @@
         <!-- HERO / ABOUT SECTION -->
         <section id="about" class="hero">
             <div class="profile-card">
-                <!-- Replace src with your image file name -->
-                <img src="headshot.jpg" alt="Karly Dao Headshot" class="profile-img">
+                <!-- Embedded image so it displays immediately -->
+                <img src="7296E5A4-8F00-43E0-ACAD-8B3B62F7FB68.png" alt="Karly Dao Headshot" class="profile-img" onerror="this.src='headshot.jpg'">
                 <h2 class="profile-name">Karly Dao</h2>
                 <p class="profile-school">Rutgers Business School</p>
                 <p class="profile-class">Class of 2029 (Expected)</p>
-                <a href="mailto:karly.dao@example.com" class="btn-primary" style="display: inline-block; width: 100%; margin-top: 10px;">Email Me</a>
             </div>
 
             <div class="hero-content">
@@ -335,8 +348,8 @@
                 <h1 class="hero-title">Driven by clarity, structure, and community impact.</h1>
                 <p class="hero-statement">Driven by a passion for serving others and a precision-minded love for numbers, clarity, and structure, I am a Rutgers Business School student dedicated to building a future in accounting where financial integrity meets community impact.</p>
                 <div class="hero-actions">
-                    <a href="mailto:karly.dao@example.com" class="btn-secondary">Email Me</a>
-                    <a href="#" class="btn-secondary">LinkedIn Profile →</a>
+                    <a href="mailto:kpd97@scarletmail.rutgers.edu" class="btn-secondary">Email Me</a>
+                    <a href="https://www.linkedin.com/in/karly-dao-2703a43aa" target="_blank" class="btn-secondary">LinkedIn Profile →</a>
                 </div>
             </div>
         </section>
@@ -369,6 +382,23 @@
                 <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-header">
+                        <h3 class="project-role">Assistant Bookkeeper</h3>
+                        <p class="project-org">KP Accounting, Inc</p>
+                        <p class="project-date">Jun 2021 - Present · 5 yrs 5 mos</p>
+                        <ul class="project-bullets">
+                            <li>Administered day-to-day bookkeeping operations for 800+ facilities by supervising accurate records.</li>
+                            <li>Moderated clientele portfolios in an organized system to maintain long-term records and prevent errors.</li>
+                            <li>Facilitated client management team of firm in contractual servicing, increasing sales by 20% and bringing in 15 new clientele.</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="Resume.pdf" target="_blank">View Experience Details →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
                         <h3 class="project-role">Youth Lead</h3>
                         <p class="project-org">Make the Road New Jersey</p>
                         <p class="project-date">Jan 2023 - Jun 2025 · 2 yrs 6 mos</p>
@@ -379,11 +409,11 @@
                         </ul>
                     </div>
                     <div class="project-links">
-                        <a href="#" onclick="alert('Community Engagement Report Demo'); return false;">View Organization Highlights →</a>
+                        <a href="Resume.pdf" target="_blank">View Leadership Summary →</a>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3 class="project-role">Project Event Coordinator</h3>
@@ -396,7 +426,7 @@
                         </ul>
                     </div>
                     <div class="project-links">
-                        <a href="#" onclick="alert('Event Coordination Summary Demo'); return false;">View Event Summary →</a>
+                        <a href="Resume.pdf" target="_blank">View Event Summary →</a>
                     </div>
                 </div>
 
